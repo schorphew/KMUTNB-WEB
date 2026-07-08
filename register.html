@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+	<title>Register</title>
+	<style>
+		body{font-family:system-ui,Segoe UI,Roboto,Arial;background:#f5f7fb;margin:0;display:flex;align-items:center;justify-content:center;height:100vh}
+		.card{background:#fff;padding:24px;border-radius:8px;box-shadow:0 6px 18px rgba(25,35,50,.08);width:360px}
+		h1{margin:0 0 16px;font-size:20px}
+		label{display:block;font-size:13px;margin-top:12px}
+		input{width:100%;padding:10px;margin-top:6px;border:1px solid #d7dde8;border-radius:6px;box-sizing:border-box}
+		.actions{margin-top:18px;display:flex;gap:8px}
+		button{flex:1;padding:10px;border:0;border-radius:6px;background:#2563eb;color:#fff;cursor:pointer}
+		.secondary{background:#eef2ff;color:#111;border:1px solid #dbeafe}
+		.note{font-size:12px;color:#6b7280;margin-top:12px}
+	</style>
+</head>
+<body>
+	<main class="card">
+		<h1>Create account</h1>
+		<form id="registerForm" method="post" action="#">
+			<label for="fullname">Full name</label>
+			<input id="fullname" name="fullname" type="text" required autocomplete="name">
+
+			<label for="email">Email</label>
+			<input id="email" name="email" type="email" required autocomplete="email">
+
+			<label for="password">Password</label>
+			<input id="password" name="password" type="password" required autocomplete="new-password" minlength="6">
+
+			<label for="confirm">Confirm password</label>
+			<input id="confirm" name="confirm" type="password" required autocomplete="new-password" minlength="6">
+
+			<div class="actions">
+				<button type="submit">Register</button>
+				<button type="button" class="secondary" onclick="window.location.href='login.html'">Sign in</button>
+			</div>
+			<div class="note">By registering you agree to the terms of service.</div>
+		</form>
+	</main>
+
+	<script>
+		document.getElementById('registerForm').addEventListener('submit', function(e){
+			var p = document.getElementById('password').value;
+			var c = document.getElementById('confirm').value;
+			if(p !== c){
+				e.preventDefault();
+				alert('Passwords do not match');
+			}
+		});
+	</script>
+</body>
+</html>
